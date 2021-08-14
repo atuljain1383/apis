@@ -3,7 +3,9 @@ services:
     usermanagement:
         build: 
             dockerfile: usermanagement/Dockerfile
-            context: .      
+            context: .    
+        volumes: 
+            - ./usermanagement:/myapp  
         restart: always
         ports: 
             - "3000:3000"
@@ -11,16 +13,22 @@ services:
             - usermanagement_db
     usermanagement_db:
         image: mongo 
+        volumes: 
+            - ./usermanagement/data:/data/db
         restart: always        
     ordermanagement:
         build: 
             dockerfile: ordermanagement/Dockerfile
             context: .
         restart: always
+        volumes: 
+            - ./ordermanagement:/myapp  
         ports: 
             - "3001:3000"
         depends_on: 
             - ordermanagement_db
     ordermanagement_db:
         image: mongo  
+        volumes: 
+            - ./ordermanagement/data:/data/db
         restart: always        
