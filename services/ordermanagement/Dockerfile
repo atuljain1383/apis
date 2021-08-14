@@ -1,8 +1,10 @@
 FROM node:latest
-WORKDIR /usr/src/app
+RUN mkdir -p /myapp
+WORKDIR /myapp
+RUN cd /myapp
 LABEL DEVELOPER="ATUL"
-COPY package*.json ./
+COPY ordermanagement/package.json /myapp
 RUN npm install
-COPY . .
+COPY ./ordermanagement/ /myapp
 EXPOSE 3000
 CMD [ "npm", "start" ]
