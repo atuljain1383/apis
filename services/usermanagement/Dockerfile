@@ -3,8 +3,8 @@ RUN mkdir -p /myapp
 WORKDIR /myapp
 RUN cd /myapp
 LABEL DEVELOPER="ATUL"
-COPY package.json /myapp
+COPY usermanagement/package.json /myapp
 RUN npm install
-COPY . /myapp/
+COPY ./usermanagement/ /myapp
 EXPOSE 3000
 CMD [ "npm", "start" ]

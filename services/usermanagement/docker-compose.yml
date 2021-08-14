@@ -2,7 +2,7 @@ version: '3.3'
 services: 
     usermanagement:
         build: 
-            dockerfile: Dockerfile
+            dockerfile: usermanagement/Dockerfile
             context: .        
         restart: always
         ports: 
