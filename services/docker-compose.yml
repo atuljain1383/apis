@@ -1,26 +1,26 @@
 version: '3.3'
 services: 
-    usermanagementservice:
+    usermanagement:
         build: 
-            dockerfile: UserManagement/Dockerfile
+            dockerfile: usermanagement/Dockerfile
             context: .      
         restart: always
         ports: 
             - "3000:3000"
         depends_on: 
-            - usermanagementservice_db
-    usermanagementservice_db:
+            - usermanagement_db
+    usermanagement_db:
         image: mongo 
         restart: always        
-    ordermanagementservice:
+    ordermanagement:
         build: 
-            dockerfile: OrderManagement/Dockerfile
+            dockerfile: ordermanagement/Dockerfile
             context: .
         restart: always
         ports: 
             - "3001:3000"
         depends_on: 
-            - ordermanagementservice_db
-    ordermanagementservice_db:
+            - ordermanagement_db
+    ordermanagement_db:
         image: mongo  
         restart: always        
