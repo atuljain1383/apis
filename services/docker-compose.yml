@@ -3,9 +3,7 @@ services:
     usermanagement:
         build: 
             dockerfile: usermanagement/Dockerfile
-            context: .    
-        volumes: 
-            - ./usermanagement:/myapp  
+            context: .        
         restart: always
         ports: 
             - "3000:3000"
@@ -20,9 +18,7 @@ services:
         build: 
             dockerfile: ordermanagement/Dockerfile
             context: .
-        restart: always
-        volumes: 
-            - ./ordermanagement:/myapp  
+        restart: always        
         ports: 
             - "3001:3000"
         depends_on: 
