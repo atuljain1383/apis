@@ -1,4 +1,7 @@
 version: '3.3'
+volumes:
+    usermanagement_db_data:
+    ordermanagement_db_data:
 services: 
     usermanagement:
         build: 
@@ -28,6 +31,3 @@ services:
         volumes: 
             - ordermanagement_db_data:/data/db
         restart: always   
-volumes: 
-    - usermanagement_db_data
-    - ordermanagement_db_data 
