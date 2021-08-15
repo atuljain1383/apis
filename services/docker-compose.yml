@@ -12,7 +12,7 @@ services:
     usermanagement_db:
         image: mongo 
         volumes: 
-            - ./usermanagement/data:/data/db
+            - usermanagement_db_data:/data/db
         restart: always        
     ordermanagement:
         build: 
@@ -26,5 +26,8 @@ services:
     ordermanagement_db:
         image: mongo  
         volumes: 
-            - ./ordermanagement/data:/data/db
-        restart: always        
+            - ordermanagement_db_data:/data/db
+        restart: always   
+volumes: 
+    - usermanagement_db_data
+    - ordermanagement_db_data 
