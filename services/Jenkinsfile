@@ -13,13 +13,13 @@ pipeline{
         }
         stage("create images"){
             steps{
-                sh "docker-compose -d --build"
+                sh "sudo docker-compose -d --build"
             }
         }
         stage('Push Docker Image'){
            steps{
-               sh "docker login -u atuljain1383 -p Ishika@2sep"
-               sh 'docker-compose push'
+               sh "sudo docker login -u atuljain1383 -p Ishika@2sep"
+               sh 'sudo docker-compose push'
            }
                 
         }        
