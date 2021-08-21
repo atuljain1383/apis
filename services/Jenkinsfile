@@ -13,6 +13,7 @@ pipeline{
         }
         stage("create images"){
             steps{
+                sh "cd /var/lib/jenkins/workspace/Microservices/services"
                 sh "sudo docker-compose build -d"
             }
         }
