@@ -13,7 +13,7 @@ pipeline{
         }
         stage("create images"){
             steps{
-                sh "sudo -p  docker-compose -d --build"
+                sh "sudo -p  docker-compose --build -d"
             }
         }
         stage('Push Docker Image'){
