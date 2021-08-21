@@ -26,7 +26,7 @@ pipeline{
         }
         stage("Run container on DEV"){
             steps{
-                def dockerCompose = "sudo docker-compose -f /var/lib/jenkins/workspace/Microservices/services/docker-compose.yml up"
+                def dockerCompose = 'sudo docker-compose -f /var/lib/jenkins/workspace/Microservices/services/docker-compose.yml up'
                 sshagent(['MServer2']) {
                    sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.11.14 ${dockerCompose}"
                 }
