@@ -4,6 +4,7 @@ volumes:
     ordermanagement_db_data:
 services: 
     usermanagement:
+        image: atuljain1383/usermanagement:v1
         build: 
             dockerfile: usermanagement/Dockerfile
             context: .        
@@ -18,6 +19,7 @@ services:
             - usermanagement_db_data:/data/db
         restart: always        
     ordermanagement:
+        image: atuljain1383/ordermanagement:v1
         build: 
             dockerfile: ordermanagement/Dockerfile
             context: .
