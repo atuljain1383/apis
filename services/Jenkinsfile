@@ -13,7 +13,7 @@ pipeline{
         }
         stage("create images"){
             steps{
-                sh "sudo /var/lib/jenkins/workspace/Microservices/services/docker-compose.yml build"
+                sh "sudo -f /var/lib/jenkins/workspace/Microservices/services/docker-compose.yml build"
             }
         }
         stage('Push Docker Image'){
