@@ -6,31 +6,18 @@ pipeline{
                 git credentialsId: 'GitHub', url: 'https://github.com/atuljain1383/apis.git'
             }
         }
-        stage("Build"){
+        stage("Build Image"){
             steps{
-                echo 'build started...'
+                sh "cd /var/lib/jenkins/workspace/Microservices/services"
+                sh "sudo docker build -t atuljain1383/ordermanagement:v2 -f /var/lib/jenkins/workspace/Microservices/services/ordermanagement/Dockerfile"
             }
         }
-        stage("Create images"){
+        stage("Push Image"){
             steps{
-                sh "sudo docker-compose -f /var/lib/jenkins/workspace/Microservices/services/docker-compose.yml build"
-            }
-        }
-        stage('Push Docker Image'){
-           steps{
                withCredentials([string(credentialsId: 'dockerHubpwd', variable: 'dockerHubpwd')]) {
                sh "sudo docker login -u atuljain1383 -p ${dockerHubpwd}"
-               sh 'sudo docker-compose -f /var/lib/jenkins/workspace/Microservices/services/docker-compose.yml push'
-             }              
-           }
-        }
-        stage("Run container on DEV"){
-            steps{                
-                sshagent(['MServer2']) {
-                   sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.11.14 sudo docker-compose -f /var/lib/jenkins/workspace/Microservices/services/docker-compose.yml up"
-                }
-            }
-        }     
+               sh 'sudo docker push atuljain1383/ordermanagement:v2'
+             }    
+        }        
     }
-
 }
