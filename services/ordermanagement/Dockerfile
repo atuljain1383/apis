@@ -5,6 +5,6 @@ RUN cd /myapp
 LABEL DEVELOPER="ATUL"
 COPY package.json /myapp
 RUN npm install
-COPY ./ordermanagement/ /myapp
+COPY ./ /myapp
 EXPOSE 3000
 CMD [ "npm", "start" ]
