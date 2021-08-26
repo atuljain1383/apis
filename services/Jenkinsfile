@@ -8,7 +8,7 @@ pipeline{
         }
         stage("Build Image"){
             steps{
-                sh "cd /var/lib/jenkins/workspace/Microservices/services/ordermanagement"
+                sh "cd /var/lib/jenkins/workspace/OrderManagemenService/services/ordermanagement"
                 sh "sudo docker build -t atuljain1383/ordermanagement:v2 ."
             }
         }
