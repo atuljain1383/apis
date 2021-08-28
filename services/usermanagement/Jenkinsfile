@@ -4,9 +4,9 @@ microservicepipeline([branchname: "master",
      imagename: "atuljain1383/usermanagement:v4", 
      dockerhubuserid: "atuljain1383", 
      dockerhubpassword: "Ishika@2sep", 
-     jenkinsdir: "/var/lib/jenkins/workspace/UserManagemenService/services/usermanagement"]
+     jenkinsdir: "/var/lib/jenkins/workspace/UserManagemenService/services/usermanagement",
      server: "MServer2", 
      containername: "usermanagementcontainer",
      hostport: "3001",
      containerport: "3000",
-     hostipwithuser: "ubuntu@13.233.133.253");
+     hostipwithuser: "ubuntu@13.233.133.253"]);
