@@ -1,2 +1,0 @@
-@Library('jenkinssharedlibrary') _
-microservicepipeline();
