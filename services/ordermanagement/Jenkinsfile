@@ -4,5 +4,9 @@ microservicepipeline([branchname: "master",
      imagename: "atuljain1383/ordermanagement:v4", 
      dockerhubuserid: "atuljain1383", 
      dockerhubpassword: "Ishika@2sep", 
-     jenkinsdir: "/var/lib/jenkins/workspace/OrderManagemenService/services/ordermanagement"]
-);
+     jenkinsdir: "/var/lib/jenkins/workspace/OrderManagemenService/services/ordermanagement"],
+     server: "MServer2",
+     containername: "ordermanagementcontainer",
+     hostport: "3000",
+     containerport: "3000",
+     hostipwithuser: "ubuntu@172.31.11.14");
