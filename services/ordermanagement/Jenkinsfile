@@ -9,4 +9,4 @@ microservicepipeline([branchname: "master",
      containername: "ordermanagementcontainer",
      hostport: "3000",
      containerport: "3000",
-     hostipwithuser: ""]);
+     hostipwithuser: "ubuntu@13.233.133.253"]);
