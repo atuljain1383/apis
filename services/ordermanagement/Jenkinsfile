@@ -1,6 +1,6 @@
 @Library('jenkinssharedlibrary') _
 microservicepipeline([branchname: "master", 
-     giturl: "https://github.com/atuljain1383/apis.git",
+     giturl: "https://github.com/atuljain1383/apis.git", 
      imagename: "atuljain1383/ordermanagement:v4", 
      dockerhubuserid: "atuljain1383", 
      dockerhubpassword: "Ishika@2sep", 
