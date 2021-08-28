@@ -1,0 +1,27 @@
+pipeline{
+    agent any
+    stages{
+        stage("Checkout"){
+            steps{
+                git credentialsId: 'GitHub', url: 'https://github.com/atuljain1383/apis.git'
+            }
+        }
+        stage("Build Image"){             
+            steps{
+                dir("/var/lib/jenkins/workspace/OrderManagemenService/services/ordermanagement") {
+                    script{
+                            sh "sudo docker build -t atuljain1383/ordermanagement:v2 ."
+                    }
+                }                    
+            }
+        }
+        stage("Push Image"){
+            steps{
+               withCredentials([string(credentialsId: 'dockerHubpwd', variable: 'dockerHubpwd')]) {
+               sh "sudo docker login -u atuljain1383 -p ${dockerHubpwd}"
+               sh 'sudo docker push atuljain1383/ordermanagement:v2'
+             }  
+           }  
+        }        
+    }
+}
